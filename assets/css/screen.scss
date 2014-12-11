@@ -13,10 +13,8 @@
 // ::Media queries
 
 
-
 // ::Imports pre-render. Must be after reset
 // ------------------------------------------------------------
-@import "compass/typography/vertical_rhythm";
 @import "compass/css3";
 @import "compass/utilities";
 @import "libs/reset";
@@ -24,8 +22,6 @@
 @import "libs/settings";
 @import "libs/typography";
 @import "libs/mixins";
-
-
 
 
 /* ::Clearfixs and extends. Use which suits best */
@@ -52,26 +48,12 @@
 /* ------------------------------------------------------------ */
 
 html {
-	font-size: 100%;
+
 }
 
 body {
 
 }
-
-a {
-	color: $action;
-	@include force-wrap;// force text links to wrap
-
-	&:hover, &:focus, &:active {
-		color: $action-respond
-	}
-}
-
-
-
-
-
 
 /* ::Media queries */
 /* ------------------------------------------------------------ */

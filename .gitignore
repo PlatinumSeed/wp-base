@@ -2,3 +2,5 @@ node_modules
 dist
 .sass-cache
 bower_components
+/icons.html
+/images/sprite.png

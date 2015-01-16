@@ -101,13 +101,16 @@ module.exports = function (grunt) {
                 // Point to the files that should be updated when
                 // you run `grunt wiredep`
                 src: [
-                    'parts/shared/html-footer.php',   // .html support...
-                ],
-                options: {
-                    ignorePath: '../..'
-                }
+                    'assets/usemin/usemin.html'
+                ]
             }
-        }
+        },
+        useminPrepare: {
+            html: 'assets/usemin/usemin.html',
+            options: {
+                dest: './'
+            }
+        },
     });
 
     // These plugins provide necessary tasks
@@ -122,9 +125,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-    // Default task
     grunt.registerTask('build', [
-
+        'useminPrepare',
+        'concat:generated',
+        'uglify:generated',
+        'cssmin:generated',
     ]);
    
     grunt.registerTask('default', ['watch']);

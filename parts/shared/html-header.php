@@ -24,8 +24,10 @@
         <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
         <link rel="apple-touch-icon-precomposed" href="favicon-72x72.png">
 
-        <!-- build:css css/screen.min.css -->
-        <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/screen.css">
-        <!-- endbuild -->
+        <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/vendor.min.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/screen.css" type="text/css" />
+
+        <?php wp_head(); ?>
     </head>
     <body>
+    <div class="wrapper">

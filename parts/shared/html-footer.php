@@ -1,8 +1,5 @@
-
-	    <!-- build:js js/vendor.js -->
-        <!-- bower:js -->
-        <script src="/bower_components/jquery/dist/jquery.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
+        </div>
+        <?php wp_footer(); ?>
+        <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/vendor.min.js"></script>
 	</body>
 </html>

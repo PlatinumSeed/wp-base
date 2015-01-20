@@ -56,7 +56,7 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        sprite:{
+        sprite: {
             desktop: {
                 src: 'assets/images/sprites/*.png',
                 destImg: 'images/sprite.png',
@@ -112,7 +112,7 @@ module.exports = function (grunt) {
             options: {
                 dest: './'
             }
-        },
+        }
 
     });
 
@@ -133,7 +133,7 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concat:generated',
         'uglify:generated',
-        'cssmin:generated',
+        'cssmin:generated'
     ]);
    
     grunt.registerTask('default', ['watch']);

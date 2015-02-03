@@ -45,3 +45,8 @@ $round-to-nearest-half-line			: false;  				// Round the line height to the near
 @function vw($size, $width) {
 	@return ($size / $width) * 100 + vw;
 }
+
+@mixin font($size, $line-height) {
+    font-size: em-font($size);
+    line-height: em-font($line-height, $size);
+}

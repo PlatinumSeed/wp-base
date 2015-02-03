@@ -21,14 +21,11 @@ module.exports = function (grunt) {
             webfonts: {
                 files: ['assets/images/icons/*.svg'],
                 tasks: ['webfont']
+            },
+            js: {
+                files: ['assets/js/{,*/}*.js'],
+                tasks: ['jsprocess']
             }
-//            js: {
-//                files: ['assets/js/{,*/}*.js'],
-//                tasks: ['jshint'],
-//                options: {
-//                  livereload: true
-//                }
-//            }
         },
         compass: {
             dist: {
@@ -53,6 +50,11 @@ module.exports = function (grunt) {
                     {expand: true, flatten: true, src: ['assets/css/screen.css'], dest: 'css'},
                     {expand: true, flatten: true, src: ['assets/css/screen.css.map'], dest: 'css'},
                     {expand: true, flatten: true, src: ['assets/css/fonts/*'], dest: 'css/fonts'}
+                ]
+            },
+            js: {
+                files: [
+                    {expand: true, flatten: true, src: ['assets/js/app.js'], dest: 'js'}
                 ]
             }
         },
@@ -112,6 +114,13 @@ module.exports = function (grunt) {
             options: {
                 dest: './'
             }
+        },
+        uglify: {
+            js: {
+                files: {
+                    'js/app.min.js': ['js/app.js']
+                }
+            }
         }
 
     });
@@ -135,7 +144,9 @@ module.exports = function (grunt) {
         'uglify:generated',
         'cssmin:generated'
     ]);
-   
+
+    grunt.registerTask('jsprocess', ['copy:js', 'uglify']);
+
     grunt.registerTask('default', ['watch']);
 };
 

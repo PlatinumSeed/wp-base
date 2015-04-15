@@ -1,3 +1,4 @@
+/*global module:false */
 module.exports = function (grunt) {
     'use strict';
     // Project configuration
@@ -139,10 +140,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-usemin');
 
     grunt.registerTask('build', [
+        'wiredep',
         'useminPrepare',
         'concat:generated',
         'uglify:generated',
-        'cssmin:generated'
+        'cssmin:generated',
+      	'copy'
     ]);
 
     grunt.registerTask('jsprocess', ['copy:js', 'uglify']);

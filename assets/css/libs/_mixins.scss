@@ -3,12 +3,9 @@
 @import "compass/utilities";
 
 
+/* ::Layout helpers */
+/* ----------------------------------------------------------- */
 
-// ADD YOUR OWN MIXINS AND HELPERS HERE
-// DESCRIBE WHAT EACH DOES AND HOW TO USE THEM
-
-// Layout
-// -------------------------------------------------------
 @mixin verticle-center($height, $offset: 0) {
 	height: $height;
 	margin-top: (-$height / 2) + $offset;
@@ -22,33 +19,8 @@
 }
 
 
-// List styles
-// -------------------------------------------------------
-
-// Mixins for list style types
-@mixin unordered {
-	 list-style-position: outside;
-	 list-style-type: disc;
-}
-
-@mixin unordered-inside {
-	 list-style-position: inside;
-	 list-style-type: disc;
-}
-
-@mixin ordered {
-	list-style-position: outside;
-	list-style-type: decimal;
-}
-
-@mixin ordered-inside {
-	list-style-position: inside;
-	list-style-type: decimal;
-}
-
-@mixin nobullet {
-	list-style-type: none;
-}
+/* ::Placeholder styling mixin */
+/* ----------------------------------------------------------- */
 
 @mixin input-placeholder {
     &.placeholder { @content; }
@@ -59,8 +31,8 @@
 }
 
 
-// Advanced typography settings
-// -------------------------------------------------------
+/* ::Advanced typography settings */
+/* ----------------------------------------------------------- */
 
 // Get advanced with type if needed for ligatures etc...
 
@@ -73,39 +45,30 @@
 	//text-rendering: optimizeLegibility; 				// Improve kerning pairs. Webkit gets funny with this sometimes
 }
 
+/* ::Measurement Conversions */
+/* ----------------------------------------------------------- */
 
-// Retina images.
-// Use with care - http://37signals.com/svn/posts/3271-easy-retina-ready-images-using-scss
-// -------------------------------------------------------
-
-@mixin image-2x($image, $width, $height) {
-  @media (min--moz-device-pixel-ratio: 1.3),
-         (-o-min-device-pixel-ratio: 2.6/2),
-         (-webkit-min-device-pixel-ratio: 1.3),
-         (min-device-pixel-ratio: 1.3),
-         (min-resolution: 1.3dppx) {
-    /* on retina, use image that's scaled by 2 */
-    background-image: url($image);
-    background-size: $width $height;
-  }
+@function emify($target, $context) {
+   @if $target == 0 { @return 0 }
+   @return $target / $context + 0em;
 }
 
-// Transitions
-// -------------------------------------------------------
+// Make px to ems using base-font-size
+// echo as: font-size: em-font(#px);
 
-// Set-up custom transitions
-
-@mixin color_transition {
-	@include transition-property(color);
-	@include transition-duration(0.3s);
-	@include transition-timing-function(ease-in-out);
+@function em-font($target, $context: $base-font-size) {
+   @return emify($target, $context);
 }
 
-// HEX to RGB
-// http://codepen.io/sturobson/pen/hdKyv
-// -------------------------------------------------------
+@function em-base($target, $context: $base-line-height) {
+   @return emify($target, $context);
+}
 
-@mixin rgba($color, $value) {
-	background-color: $color;
-	background-color: rgba($color, $value);
+@function vw($size, $width) {
+	@return ($size / $width) * 100 + vw;
+}
+
+@mixin font($size, $line-height) {
+    font-size: em-font($size);
+    line-height: em-font($line-height, $size);
 }

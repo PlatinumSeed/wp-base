@@ -13,16 +13,10 @@
 
 /* ::Libs */
 /* ----------------------------------------------------------- */
-@import "compass/css3";
-@import "compass/utilities";
-//@import "susy";
-//@import "breakpoint"; //optional
 @import "libs/reset";
-//@import "libs/sprites"; //optional
 @import "libs/icons";
 @import "libs/settings";
 @import "libs/mixins";
-//@import "libs/animate"; //optional
 
 
 /* ::Clearfixs and extends. Use which suits best */
@@ -36,7 +30,7 @@
 
 // OTHER EXTENDS
 // Max width, for images etc... in RWD
-.max-width 			{ max-width: 100%; height: auto; }
+.max_width 			{ max-width: 100%; height: auto; }
 
 
 
@@ -58,7 +52,7 @@ body {
 /* ----------------------------------------------------------- */
 @import "common/typography";
 @import "common/forms";
-@import "common/header";
+
 /* ::Pages */
 /* ----------------------------------------------------------- */
 @import "pages/home"

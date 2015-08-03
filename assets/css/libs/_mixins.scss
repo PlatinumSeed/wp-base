@@ -1,8 +1,3 @@
-@import "settings";
-@import "compass/css3";
-@import "compass/utilities";
-
-
 /* ::Layout helpers */
 /* ----------------------------------------------------------- */
 
@@ -71,4 +66,18 @@
 @mixin font($size, $line-height) {
     font-size: em-font($size);
     line-height: em-font($line-height, $size);
+}
+
+/* ::Some Stuff from compass */
+/* ----------------------------------------------------------- */
+@mixin clearfix {
+  overflow: hidden;
+}
+
+@mixin pie-clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
